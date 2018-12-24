@@ -14,8 +14,8 @@ param = {
     # 'Signature': '',必需，但是暂时不填充
 
     # 接口请求参数↓
-    'domain': 'xchens.cn',
-    'recordId': 397834481,  # pi.xchens.cn  解析记录的id，可通过RecodeList查看
+    'domain': configs['domain'],
+    'recordId': 397834481,  # pi.example.com  解析记录的id，可通过RecodeList查看
     'subDomain': 'pi',  # 子域名
     'recordType': 'A',  # 属性
     'recordLine': '默认',  # 使用默认解析线路
