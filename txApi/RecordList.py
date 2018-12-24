@@ -18,7 +18,7 @@ param = {
     # 接口请求参数↓
     # 'offset': 0,
     # 'length': 20,
-    'domain': 'xchens.cn',
+    'domain': configs['domain'],
     # 'subDomain': 'pi',  # 过滤器，比如只显示子域名为pi的记录
 }
 
