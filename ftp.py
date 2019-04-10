@@ -8,8 +8,8 @@ run
 """
 app=Flask(__name__)
 
-@app.route('/getfile/', defaults={'filename': ''})
-@app.route("/getfile/<filename>")
+@app.route('/', defaults={'filename': ''})
+@app.route("/<filename>")
 def getfile(filename):
     """only suppprt file which in current work directory"""
     
