@@ -1,7 +1,11 @@
 from flask import Flask, make_response, send_file, request
 import os
 import sys
-
+"""
+run
+    $ pip install flask
+    $ python ftp.py
+"""
 app=Flask(__name__)
 
 @app.route('/getfile/', defaults={'filename': ''})
