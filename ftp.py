@@ -100,8 +100,8 @@ def print_help():
     ftp based on flask.
     ----
     example:
-        python ftp.py --host=0.0.0.0 --port=80 .
-        """)
+        {} --host=0.0.0.0 --port=80 .
+        """.format(sys.argv[0]))
     else:
         eval('print "please upgrade to python 3"')
 
@@ -111,7 +111,7 @@ def main():
     if len(sys.argv) == 1:
         pass
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "", ["host=", "port="])
+        opts, args = getopt.getopt(sys.argv[1:], "h", ["help", "host=", "port="])
         # dir
         if len(args) == 0:
             pass
@@ -127,17 +127,23 @@ def main():
                 host = a
             elif o == '--port':
                 port = int(a)
+            elif o == '-h' or o == '--help':
+                # print help info and exit
+                print_help()
+                exit(0)
     except getopt.GetoptError:
         print('[-] argv error, please check it')
         print_help()
         exit(0)
-    if not check_args(work_dir, host, port):
+
+    # check args and run
+    if check_args(work_dir, host, port):
+        work_dir = os.path.abspath(work_dir)
+        app.config.update({'work_dir': work_dir})
+        app.run(host=host, port=port)
+    else:
         print('[-] invalid argv, please check it')
         print_help()
-        exit(0)
-    work_dir = os.path.abspath(work_dir)
-    app.config.update({'work_dir': work_dir})
-    app.run(host=host, port=port)
 
 
 if __name__ == '__main__':
