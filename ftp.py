@@ -32,7 +32,6 @@ def not_found(e):
 
 def getfile(filename):
     """only support file which in current work directory"""
-    print(filename)
     # check filename type
     if not filename or not isinstance(filename, str):
         # filename could be '',but should not be NoneType
@@ -104,7 +103,7 @@ def print_help():
         python ftp.py --host=0.0.0.0 --port=80 .
         """)
     else:
-        eval('print please upgrade to python 3')
+        eval('print "please upgrade to python 3"')
 
 
 def main():
